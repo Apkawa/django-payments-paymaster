@@ -31,8 +31,8 @@ if sys.argv[1] == 'bumpversion':
 
 __doc__ = ""
 
-project_name = '{django-app-template}'
-app_name = '{example_app}'
+project_name = 'django-payments-paymaster'
+app_name = 'payments_paymaster'
 
 ROOT = os.path.dirname(__file__)
 

@@ -1,4 +1,4 @@
-* {django-app-template} version:
+* django-payments-paymaster version:
 * Django version:
 * Python version:
 * Operating System:

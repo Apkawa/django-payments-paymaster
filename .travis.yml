@@ -30,7 +30,7 @@ matrix:
 
 
 install: pip install tox-travis python-coveralls codecov
-script: tox -- -v --cov {example_app} --cov-report term-missing --flake8
+script: tox -- -v --cov payments_paymaster --cov-report term-missing --flake8
 after_success:
   - codecov -e TOXENV,DJANGO
 
@@ -44,5 +44,5 @@ after_success:
 #  on:
 #    tags: true
 #    distributions: sdist bdist_wheel
-#    repo: Apkawa/{django-app-template}
+#    repo: Apkawa/django-payments-paymaster
 #    branch: master

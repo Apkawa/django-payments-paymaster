@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.admin',
-    '{example_app}',
+    'payments_paymaster',
     'tests',
 ]
 

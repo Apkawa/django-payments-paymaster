@@ -1,25 +1,25 @@
-[![Build Status](https://travis-ci.org/Apkawa/{django-app-template}.svg?branch=master)](https://travis-ci.org/Apkawa/{django-app-template})
-[![codecov](https://codecov.io/gh/Apkawa/{django-app-template}/branch/master/graph/badge.svg)](https://codecov.io/gh/Apkawa/{django-app-template})
-[![Requirements Status](https://requires.io/github/Apkawa/{django-app-template}/requirements.svg?branch=master)](https://requires.io/github/Apkawa/{django-app-template}/requirements/?branch=master)
-[![PyUP](https://pyup.io/repos/github/Apkawa/{django-app-template}/shield.svg)](https://pyup.io/repos/github/Apkawa/{django-app-template})
-[![PyPI](https://img.shields.io/pypi/pyversions/{django-app-template}.svg)]()
+[![Build Status](https://travis-ci.org/Apkawa/django-payments-paymaster.svg?branch=master)](https://travis-ci.org/Apkawa/django-payments-paymaster)
+[![codecov](https://codecov.io/gh/Apkawa/django-payments-paymaster/branch/master/graph/badge.svg)](https://codecov.io/gh/Apkawa/django-payments-paymaster)
+[![Requirements Status](https://requires.io/github/Apkawa/django-payments-paymaster/requirements.svg?branch=master)](https://requires.io/github/Apkawa/django-payments-paymaster/requirements/?branch=master)
+[![PyUP](https://pyup.io/repos/github/Apkawa/django-payments-paymaster/shield.svg)](https://pyup.io/repos/github/Apkawa/django-payments-paymaster)
+[![PyPI](https://img.shields.io/pypi/pyversions/django-payments-paymaster.svg)]()
 
 Template repository for django-app.
 After create find and replace 
-* `{django-app-template}` to new repository name
-* `{example_app}` to new app package name
+* `django-payments-paymaster` to new repository name
+* `payments_paymaster` to new app package name
 
 # Installation
 
 ```bash
-pip install {django-app-template}
+pip install django-payments-paymaster
 
 ```
 
 or from git
 
 ```bash
-pip install -e git+https://githib.com/Apkawa/{django-app-template}.git#egg={django-app-template}
+pip install -e git+https://githib.com/Apkawa/django-payments-paymaster.git#egg=django-payments-paymaster
 ```
 
 ## Django and python version

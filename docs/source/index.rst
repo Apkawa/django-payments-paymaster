@@ -1,4 +1,4 @@
-{django-app-template} documentation!
+django-payments-paymaster documentation!
 ====================================
 
 .. toctree::
