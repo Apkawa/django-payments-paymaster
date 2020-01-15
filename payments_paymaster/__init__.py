@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+from .provider import PaymasterProvider
+
+__all__ = ['PaymasterProvider']
 
 __version__ = '0.0.0'
 

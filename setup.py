@@ -53,7 +53,10 @@ setup(
     packages=[package for package in find_packages() if package.startswith(app_name)],
     install_requires=[
         'six',
-        'Django>=1.8,<3.1'
+        'Django>=1.8,<3.1',
+        'django-payments',
+        # 'simple-crypt',
+        'python-dateutil',
     ],
     zip_safe=False,
     include_package_data=True,

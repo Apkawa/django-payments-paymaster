@@ -4,10 +4,7 @@
 [![PyUP](https://pyup.io/repos/github/Apkawa/django-payments-paymaster/shield.svg)](https://pyup.io/repos/github/Apkawa/django-payments-paymaster)
 [![PyPI](https://img.shields.io/pypi/pyversions/django-payments-paymaster.svg)]()
 
-Template repository for django-app.
-After create find and replace 
-* `django-payments-paymaster` to new repository name
-* `payments_paymaster` to new app package name
+Paymaster.ru Payment Gateway Provider for django-payments
 
 # Installation
 
