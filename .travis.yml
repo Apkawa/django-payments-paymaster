@@ -1,0 +1,48 @@
+sudo: false
+language: python
+
+python:
+    - "3.5"
+    - "3.6"
+    - "3.7"
+    - "3.8"
+env:
+  - DJANGO=1.8
+  - DJANGO=1.11
+  - DJANGO=2.2
+  - DJANGO=3.0
+
+matrix:
+  fast_finish: true
+  include:
+    - env: TOXENV=qa
+      python: "3.7"
+    - env: TOXENV=py37-django-dev
+      python: "3.7"
+  exclude:
+    # Python/Django combinations that aren't officially supported
+    - { env: DJANGO=1.11, python: "3.7" }
+    - { env: DJANGO=1.11, python: "3.8" }
+    - { env: DJANGO=3.0, python: "3.5" }
+  allow_failures:
+    - env: DJANGO=1.8
+    - env: DJANGO=1.11
+
+
+install: pip install tox-travis python-coveralls codecov
+script: tox -- -v --cov {example_app} --cov-report term-missing --flake8
+after_success:
+  - codecov -e TOXENV,DJANGO
+
+# TODO
+#deploy:
+#  provider: pypi
+#  user: Apkawa
+#  password:
+#    # https://docs.travis-ci.com/user/encryption-keys/
+#    secure: ''
+#  on:
+#    tags: true
+#    distributions: sdist bdist_wheel
+#    repo: Apkawa/{django-app-template}
+#    branch: master
