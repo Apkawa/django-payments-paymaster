@@ -29,7 +29,6 @@ def test_hash_test_site():
         hashed_fields=settings.HASH_FIELDS,
         password='YOUR_MOMMY_SECRET',
         hash_method='sha256'
-
     )
 
     assert result == 'm8bC0NMnyUrcr/XZXe4HaT0OkKjDLqLG2Rqo9GZZ0ys='

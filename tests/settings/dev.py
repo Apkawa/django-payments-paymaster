@@ -12,6 +12,7 @@ os.sys.path.insert(0, os.path.abspath(TEST_ROOT + '/../'))
 MEDIA_ROOT = os.path.join(
     os.path.normcase(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'media')
 MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
 
 TEMPLATES = [
     {
@@ -73,6 +74,7 @@ PAYMENT_VARIANTS = {
             'secret': os.environ.get('PAYMASTER_SECRET'),
             'api_login': os.environ.get('PAYMASTER_API_LOGIN'),
             'api_password': os.environ.get('PAYMASTER_API_PASS'),
+            'hash_method': 'sha256'
         }
     )
 }

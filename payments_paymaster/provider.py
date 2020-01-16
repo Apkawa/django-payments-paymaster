@@ -6,7 +6,7 @@ from base64 import b64encode
 
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.utils.encoding import smart_bytes
+from django.utils.encoding import smart_bytes, smart_str
 from payments import PaymentStatus
 from payments.core import BasicProvider
 from payments.models import BasePayment
@@ -74,7 +74,7 @@ class PaymasterProvider(BasicProvider):
             'LMI_PAYMENT_AMOUNT': str(payment.total),
             'LMI_PAYMENT_NO': self.get_payment_number(payment),
             'LMI_PAYMENT_DESC': description,
-            'LMI_PAYMENT_DESC_BASE64': b64encode(smart_bytes(description)),
+            'LMI_PAYMENT_DESC_BASE64': smart_str(b64encode(smart_bytes(description))),
             'LMI_PAYER_PHONE_NUMBER': self.get_payer_phone(payment),
             'LMI_PAYER_EMAIL': self.get_payer_email(payment),
             'LMI_EXPIRES': f'{expire:%Y-%m-%dT%H:%M:%S}',
@@ -94,6 +94,7 @@ class PaymasterProvider(BasicProvider):
     def verify_hash(self, data):
         """ Проверка ключа безопасности """
         _hash = calculate_hash(data,
+                               password=self.secret,
                                hashed_fields=self.hash_fields,
                                hash_method=self.hash_method)
         return _hash == data.get('LMI_HASH')
