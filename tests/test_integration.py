@@ -1,9 +1,9 @@
-import time
 from urllib.parse import urlparse
 
 import pytest
 from payments import PaymentStatus
 from payments.core import provider_factory
+from splinter.driver.webdriver.chrome import WebDriver
 
 from payments_paymaster import PaymasterProvider
 from tests.models import Payment
@@ -21,6 +21,16 @@ def test_hidden_fields(settings):
 
     assert hidden_data['PAYMENT_TOKEN'] == payment.token
     assert settings.LIVE_PAYMENT_HOST in hidden_data['LMI_SUCCESS_URL']
+
+
+def test_browser(splinter_webdriver_executable):
+    webdriver = WebDriver(
+        executable_path=splinter_webdriver_executable,
+        headless=True)
+
+    webdriver.visit('https://ya.ru')
+    assert webdriver.is_element_visible_by_css('#text')
+    assert webdriver.url == 'https://ya.ru/'
 
 
 @pytest.mark.webtest()
