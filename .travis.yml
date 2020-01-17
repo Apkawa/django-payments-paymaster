@@ -35,6 +35,8 @@ matrix:
     - { env: DJANGO=3.0, python: "3.5" }
   allow_failures:
     - env: DJANGO=1.11
+    - env: TOXENV=qa
+    - env: TOXENV=py37-django-dev
 
 
 install: pip install tox-travis python-coveralls codecov

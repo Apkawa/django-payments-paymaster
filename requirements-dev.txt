@@ -14,7 +14,7 @@ mock==3.0.5
 pytest-splinter==2.0.1
 splinter==0.12
 chromedriver-binary==2.40.1
-pytest-ngrok
+pytest-ngrok>0.1
 
 # Docs
 
