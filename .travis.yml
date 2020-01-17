@@ -3,8 +3,8 @@ language: python
 services:
   - xvfb
 
-#before_install:
-#  - export DISPLAY=:99.0
+before_install:
+  - export DISPLAY=:99.0
 
 
 addons:
