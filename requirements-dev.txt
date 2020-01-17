@@ -13,8 +13,7 @@ pytest-cov==2.8.1
 mock==3.0.5
 pytest-splinter==2.0.1
 chromedriver-binary==2.40.1
-# TODO stabilize
--e git+https://github.com/Apkawa/pytest-ngrok.git#egg=pytest-ngrok
+pytest-ngrok
 
 # Docs
 

@@ -23,9 +23,8 @@ def test_hidden_fields(settings):
 
 
 @pytest.mark.webtest()
-def test_payment(browser, live_server, ngrok, settings):
-
-    remote_url = str(ngrok(urlparse(live_server.url).port))
+def test_payment(browser, live_server_ngrok, settings):
+    remote_url = live_server_ngrok.url
     host = urlparse(remote_url).netloc
 
     settings.DEBUG = True
