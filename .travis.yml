@@ -1,6 +1,9 @@
 sudo: false
 language: python
 
+addons:
+  chrome: stable
+
 python:
     - "3.5"
     - "3.6"
@@ -30,7 +33,7 @@ matrix:
 
 
 install: pip install tox-travis python-coveralls codecov
-script: tox -- -v --cov payments_paymaster --cov-report term-missing --flake8
+script: tox
 after_success:
   - codecov -e TOXENV,DJANGO
 
