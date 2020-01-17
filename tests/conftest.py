@@ -4,6 +4,20 @@ import pytest
 
 
 @pytest.fixture(scope='session')
+def splinter_driver_kwargs(splinter_webdriver, splinter_driver_kwargs):
+    if splinter_webdriver == 'chrome':
+        from selenium import webdriver
+        chrome_options = webdriver.ChromeOptions()
+        prefs = {"profile.default_content_setting_values.notifications": 2}
+        chrome_options.add_experimental_option("prefs", prefs)
+        # https://stackoverflow.com/questions/50642308/webdriverexception-unknown-error-devtoolsactiveport-file-doesnt-exist-while-t
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        chrome_options.add_argument('--no-sandbox')
+        splinter_driver_kwargs['options'] = chrome_options
+    return splinter_driver_kwargs
+
+
+@pytest.fixture(scope='session')
 def splinter_webdriver(request):
     return request.config.option.splinter_webdriver or 'chrome'
 
@@ -17,6 +31,7 @@ def splinter_webdriver_executable(request, splinter_webdriver):
         executable = chromedriver_filename
     return os.path.abspath(executable) if executable else None
 
+
 @pytest.fixture(scope='session')
 def splinter_window_size(splinter_webdriver, splinter_window_size):
     """
@@ -27,6 +42,7 @@ def splinter_window_size(splinter_webdriver, splinter_window_size):
         return None
 
     return splinter_window_size
+
 
 def pytest_addoption(parser):
     parser.addoption(
