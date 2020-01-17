@@ -17,6 +17,16 @@ def splinter_webdriver_executable(request, splinter_webdriver):
         executable = chromedriver_filename
     return os.path.abspath(executable) if executable else None
 
+@pytest.fixture(scope='session')
+def splinter_window_size(splinter_webdriver, splinter_window_size):
+    """
+    Prevent pytest-splinter from crashing with Chrome.
+
+    """
+    if splinter_webdriver == 'chrome':
+        return None
+
+    return splinter_window_size
 
 def pytest_addoption(parser):
     parser.addoption(
