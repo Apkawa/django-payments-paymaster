@@ -2,6 +2,9 @@ import os
 
 import pytest
 
+@pytest.fixture(scope='session')
+def ngrok_bin():
+    return '/tmp/bin/ngrok'
 
 @pytest.fixture(scope='session')
 def splinter_driver_kwargs(splinter_webdriver, splinter_driver_kwargs):
