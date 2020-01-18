@@ -1,3 +1,4 @@
+import os
 from urllib.parse import urlparse
 
 import pytest
@@ -22,11 +23,17 @@ def test_hidden_fields(settings):
     assert settings.LIVE_PAYMENT_HOST in hidden_data['LMI_SUCCESS_URL']
 
 
+def test_settings(settings):
+    assert os.environ.get('PAYMASTER_CLIENT_ID')
+    assert os.environ.get('PAYMASTER_SECRET')
+    assert settings.PAYMENT_VARIANTS['paymaster'][1]['client_id'] is not None
+    assert settings.PAYMENT_VARIANTS['paymaster'][1]['secret'] is not None
+
+
 @pytest.mark.webtest()
 def test_payment(browser, live_server_ngrok, settings):
     remote_url = live_server_ngrok.url
     host = urlparse(remote_url).netloc
-
     settings.DEBUG = True
     settings.ALLOWED_HOSTS = [
         'localhost',
